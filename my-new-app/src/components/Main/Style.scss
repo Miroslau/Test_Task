@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin mobile-phone {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: 600px) and (max-width: 899px) { @content; }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: 900px)  and (max-width: 1199px) { @content; }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px)  and (max-width: 1799px) { @content; }
+}
+
+@mixin large-desktop {
+  @media screen and (min-width: 3840px) { @content; }
+}
+
+$font-main: 'Montserrat', sans-serif;
+$font--description: 'Roboto', sans-serif;
+$font--filter: 'PT Sans', sans-serif;
+
+$font-size-main: 13px;
+$font-size--smaller: 12px;
+$font-size--bigger: 14px;
+
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+$line-height-primary: 20px;
+
+$bg-primary: #fff;
+$bg-secondary: #333;
+$bg--menu: #f8f8f8;
+
+$gray: #727272;
+$gray--darker: #575153;
+$blue-green: #00c8c8;
+
+.main {
+  width: 100%;
+  margin: 0;
+}
+
+.section {
+  @include flex-column;
+  width: 100%;
+  margin: 0;
+}
+
+.Avatar {
+  width: 250px;
+  height: 250px;
+}
+
+.products {
+  @include flex-wrap;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.products-filter__buttons {
+  text-align: left;
+  width: 90%;
+  margin: 0;
+  padding: 2.5vh 1vw;
+  border-top: 1px solid #eee;
+}
+
+.products-filter__button {
+  font-family: $font--filter;
+  line-height: $line-height-primary;
+  text-transform: uppercase;
+  margin-right: 20px;
+
+  &:hover {
+    cursor: pointer;
+    color: $blue-green;
+  }
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes colorChange {
+  0% { 
+    background: #0f2444;
+  }
+  50% { 
+    background: #6dd6cf;
+  }
+  100% { 
+    background: #475b77;
+  }
+}

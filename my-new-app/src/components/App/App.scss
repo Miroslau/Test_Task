@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700');
+
+$font-main: 'Montserrat', sans-serif;
+$font-size-main: 13px;
+$regular: 400;
+$gray: #727272;
+
+.page {
+  font {
+    family: $font-main;
+    size: $font-size-main;
+    weight: $regular;
+  }
+  color: $gray;
+}
+
+a,
+input,
+button {
+  font: inherit;
+  color: inherit;
+}

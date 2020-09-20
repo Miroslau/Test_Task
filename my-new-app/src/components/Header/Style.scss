@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,700');
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+@mixin flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin flex-row-space-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin mobile-phone {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin tablet-portrait {
+  @media (min-width: 600px) and (max-width: 899px) { @content; }
+}
+
+@mixin tablet-landscape {
+  @media (min-width: 900px)  and (max-width: 1199px) { @content; }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px)  and (max-width: 1799px) { @content; }
+}
+
+@mixin large-desktop {
+  @media screen and (min-width: 3840px) { @content; }
+}
+
+$font-main: 'Montserrat', sans-serif;
+$font--description: 'Roboto', sans-serif;
+$font--filter: 'PT Sans', sans-serif;
+
+$font-size-main: 13px;
+$font-size--smaller: 12px;
+$font-size--bigger: 14px;
+
+$light: 300;
+$regular: 400;
+$bold: 700;
+
+$line-height-primary: 20px;
+
+$bg-primary: #fff;
+$bg-secondary: #7ef1cf;
+$bg--menu: #f8f8f8;
+
+$gray: #727272;
+$gray--darker: #575153;
+$blue-green: #00c8c8;
+
+.header {
+  @include flex-column;
+  width: 100%;
+  margin: 0;
+  background: #7ef1cf;
+}
+
+.header__buttons {
+  width: 100%;
+  min-height: 45px;
+  margin: 0;
+  background-color: $bg-secondary;
+  text-align: right;
+}
+
+.main-nav {
+  @include flex-row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0;
+  padding: 2vh 1vw 1vh;
+
+  @include mobile-phone {
+    width: 100%;
+    @include flex-wrap;
+  }
+
+  @include tablet-portrait {
+    width: 100%;
+    @include flex-wrap;
+  }
+
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    
+    @include mobile-phone {
+      display: block;
+    }
+
+    @include tablet-portrait {
+      display: block;
+    }
+  }
+}
+
+.nav__buttons {
+
+  @include mobile-phone {
+    @include flex-wrap;
+  }
+
+  @include tablet-portrait {
+    @include flex-wrap;
+  }
+}
+
+input {
+  width: 550px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: $bold;
+  display: inline-block;
+  margin-right: 200px;
+  letter-spacing: 1px;
+  color: #222;
+  text-transform: uppercase;
+
+  @include mobile-phone {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  @include tablet-portrait {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+  }
+}
+
+.button {
+  line-height: $line-height-primary;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 0;
+}
+
+.header-buttons__button {
+  color: #999;
+  padding: 12px;
+  margin-right: 10px;
+  transition: all 1.1s;
+
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(270deg, #fff, $blue-green);
+    transition: 1.1s easeInSine;
+  }
+
+  &:active {
+    transform: scale(1.3);
+  }
+}
+
+.nav-buttons {
+  &__button {
+    margin-left: 40px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover .nav-buttons__text,
+	&:hover .nav-buttons__icon {
+      color: $blue-green;
+    }
+
+    @include mobile-phone {
+      margin: 0 10px;
+    }
+
+    @include tablet-portrait {
+      margin: 0 10px;
+    }
+
+    @include tablet-landscape {
+      margin: 0 10px;
+    }
+  }
+
+  &__text,
+  &__icon,
+  &__link {
+    color: #989898;
+    text-transform: uppercase;
+  }
+
+  &__text,
+  &__icon {
+    display: block;
+  }
+
+  &__icon {
+    float: left;
+  }
+
+  &__link {
+    line-height: $line-height-primary;
+    margin-left: 40px;
+
+    &:hover {
+      cursor: pointer;
+      color: $blue-green;
+    }
+
+    @include mobile-phone {
+      margin: 0 10px;
+    }
+
+    @include tablet-portrait {
+      margin: 0 10px;
+    }
+
+    @include tablet-landscape {
+      margin: 0 10px;
+    }
+  }
+}
